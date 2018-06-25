@@ -1,6 +1,6 @@
 package com.m2i.poe;
 
-public class getPrimeNumber {
+public class GetPrimeNumber {
 
     public static void main(String[] args) {
         int[] tab = {2,-2,99,88,7,13,12,10,18,22};
