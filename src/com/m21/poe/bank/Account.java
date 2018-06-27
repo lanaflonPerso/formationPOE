@@ -1,5 +1,6 @@
 package com.m21.poe.bank;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Account {
@@ -9,20 +10,27 @@ public class Account {
     private boolean isActive = true;
     private boolean isBlocked = false;
     private Date creationDate = new Date();
+    private ArrayList<Transaction> transactionList = new ArrayList<>();
+    private Customer customer;
 
 //    Méthodes
 
-    public Account(int id){
+    public Account(int id, Customer customer){
         this.id = id;
+        this.customer = customer;
     }
 
     public Account(){
 
     }
 
-    void deposit(double amount) {
+    public void deposit(double amount) {
         if (isActive() && !isBlocked()) {
             solde = (getSolde() + amount);
+            Transaction transaction = new Transaction(amount);
+            transaction.setFromAccount(null);
+            transaction.setToAccount(this);
+            transactionList.add(transaction);
         }
     }
 
@@ -30,6 +38,10 @@ public class Account {
         if (isActive() && !isBlocked()) {
             if ((amount <= getSolde())) {
                 solde = (getSolde() - amount);
+                Transaction transaction = new Transaction(-amount);
+                transaction.setFromAccount(this);
+                transaction.setToAccount(null);
+                transactionList.add(transaction);
                 return amount;
             } else {
                 return 0;
@@ -40,21 +52,25 @@ public class Account {
         }
     }
 
-    void close() {
+    public void close() {
         isActive = false;
     }
 
-    void block() {
+    public void block() {
         isBlocked = true;
     }
 
-    void unblock() {
+    public void unblock() {
         isBlocked = false;
     }
 
 //    GETTER & SETTER
     public int getId() {
         return id;
+    }
+
+    public ArrayList<Transaction> getTransactionList() {
+        return transactionList;
     }
 
     public double getSolde() {
@@ -73,7 +89,12 @@ public class Account {
         return creationDate;
     }
 
-    public String toString(){
-        return "le solde est : " + getSolde() + " l\'id est : " + getId();
+    public Customer getCustomer() {
+        return customer;
     }
+
+    public String toString(){
+        return "le solde est : " + getSolde() + " le client est : " + this.customer.getFirstName() + " " + this.customer.getLastName();
+    }
+
 }
