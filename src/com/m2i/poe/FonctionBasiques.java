@@ -137,7 +137,8 @@ public class FonctionBasiques {
             System.out.println(aliste.get(i));
         }
     }
-//    Faire une methode qui fait un add puis un remove //
+
+    //    Faire une methode qui fait un add puis un remove //
     public static ArrayList<Integer> permut(ArrayList<Integer> l, int index1, int index2) {
         int temp = l.get(index1);
         l.set(index1, l.get(index2));
@@ -153,21 +154,24 @@ public class FonctionBasiques {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> aliste = new ArrayList<>(Arrays.asList(2, 4, 7, 8, 9, 5));
-        ArrayList<Double> aliste2 = new ArrayList<>(Arrays.asList(2.2, .2, 7.3, 8.5, 9.0, 5.0));
-//        double[] tab = {8.1,7,6,5,4,3,2,1.1};
-//        System.out.println(minimumTab(tab));
-//        System.out.println(maximumTab(tab));
-//        System.out.println(moyenneTab(tab));
-//        System.out.println(sommeTab(tab));
-//        System.out.println(minimum(aliste));
-//        System.out.println(maximum(aliste));
-//        System.out.println(moyenne(aliste));
-//        System.out.println(somme(aliste));
-        primeNumb(aliste);
+//        ArrayList<Integer> aliste = new ArrayList<>(Arrays.asList(2, 4, 7, 8, 9, 5));
+//        ArrayList<Double> aliste2 = new ArrayList<>(Arrays.asList(2.2, .2, 7.3, 8.5, 9.0, 5.0));
+////        double[] tab = {8.1,7,6,5,4,3,2,1.1};
+////        System.out.println(minimumTab(tab));
+////        System.out.println(maximumTab(tab));
+////        System.out.println(moyenneTab(tab));
+////        System.out.println(sommeTab(tab));
+////        System.out.println(minimum(aliste));
+////        System.out.println(maximum(aliste));
+////        System.out.println(moyenne(aliste));
+////        System.out.println(somme(aliste));
+//        primeNumb(aliste);
 //        inverseArray(aliste);
-
-
+        Point p1 = new Point(4,2);
+        p1.display();
+        p1.moveTo(1,3);
+        p1.display();
+        p1.moveRelative(3,5);
+        p1.display();
     }
-
 }
