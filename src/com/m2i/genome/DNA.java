@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class DNA {
     private ArrayList<Nucleobase> strand = new ArrayList<>();
-//    private ArrayList<Nucleobase> complementaryStrand = new ArrayList<>();
 
-    public DNA(String name){
-//        boolean validname = true;
+    public DNA(String name) {
+        boolean validname = true;
 //        for (int i = 0; i < name.length() ; i++ ){
 //            char tempChar = name.charAt(i);
 //            if (tempChar != 'A' || tempChar != 'T' || tempChar != 'C' || tempChar != 'G'){
@@ -15,12 +14,17 @@ public class DNA {
 //                break;
 //            }
 //        }
+//        if (validname == false) {
+//           System.out.println("nom Invalide");
+//        }
+//        else {strandFill(name.toUpperCase());}
+
 
         strandFill(name.toUpperCase());
     }
 
-    private void strandFill(String name){
-        for (int i = 0 ; i < name.length(); i++){
+    private void strandFill(String name) {
+        for (int i = 0; i < name.length(); i++) {
             getStrand().add(new Nucleobase(name.charAt(i)));
         }
     }
@@ -29,13 +33,13 @@ public class DNA {
         return strand;
     }
 
-    public String getComplementaryStrand(){
-        ArrayList<Nucleobase> tempArray= new ArrayList<>();
+    public String getComplementaryStrand() {
+        ArrayList<Nucleobase> tempArray = new ArrayList<>();
         String string = new String();
-        for(Nucleobase nucleobase : strand){
+        for (Nucleobase nucleobase : strand) {
             tempArray.add(new Nucleobase(nucleobase.getSymbol()));
         }
-        for(Nucleobase nucleobase : tempArray){
+        for (Nucleobase nucleobase : tempArray) {
             nucleobase.matchNucleobase();
             string += nucleobase.getSymbol();
         }
@@ -43,7 +47,17 @@ public class DNA {
         return string;
     }
 
-    public String toString(){
+    public RNA transcription() {
+        RNA rna = new RNA();
+        for (Nucleobase nucleobase : strand) {
+            Nucleobase nucleobase1 = new Nucleobase(nucleobase.getSymbol());
+            nucleobase1.matchNucleobase();
+            rna.addNucleobase(new Nucleobase(nucleobase1.getSymbol(), true));
+        }
+        return rna;
+    }
+
+    public String toString() {
         return "DNA sequence " + '\n' + getStrand() + '\n';
     }
 

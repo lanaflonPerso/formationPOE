@@ -14,22 +14,22 @@ public class Nucleobase {
         nameFamily(symbol);
     }
 
-    public Nucleobase(char symbol, boolean rna){
+    public Nucleobase(char symbol, boolean rna) {
         this.dna = false;
         this.rna = true;
         this.symbol = symbol;
         nameFamily(symbol);
     }
 
-    private void nameFamily(char symbol){
+    private void nameFamily(char symbol) {
         switch (symbol) {
             case 'A':
                 name = "Adenine";
                 family = "Purine";
-                if (dna){
+                if (isDna()) {
                     match = 'T';
                 }
-                if(rna){
+                if (isRna()) {
                     match = 'U';
                 }
                 break;
@@ -39,7 +39,7 @@ public class Nucleobase {
                 match = 'C';
                 break;
             case 'T':
-                if (rna == true){
+                if (isRna() == true) {
                     this.symbol = 'U';
                     name = "Uracil";
                     family = "Pyrimidine";
@@ -77,17 +77,17 @@ public class Nucleobase {
         return family;
     }
 
-    public void matchNucleobase(){
+    public void matchNucleobase() {
         this.symbol = this.match;
         nameFamily(this.getSymbol());
     }
 
-    public void setStrandRNA(){
+    public void setStrandRNA() {
         rna = true;
         dna = false;
     }
 
-    public void setStrandDNA(){
+    public void setStrandDNA() {
         dna = true;
         rna = false;
     }
@@ -96,4 +96,11 @@ public class Nucleobase {
         return getSymbol() + " ";
     }
 
+    public boolean isDna() {
+        return dna;
+    }
+
+    public boolean isRna() {
+        return rna;
+    }
 }
