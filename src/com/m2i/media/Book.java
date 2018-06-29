@@ -1,8 +1,5 @@
 package com.m2i.media;
 
-import com.m2i.geometry.Author;
-import com.m2i.geometry.Publisher;
-
 public class Book extends Media {
     private int pageNbr;
 
