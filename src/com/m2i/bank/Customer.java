@@ -1,4 +1,4 @@
-package com.m21.poe.bank;
+package com.m2i.bank;
 
 public class Customer {
     private int id;

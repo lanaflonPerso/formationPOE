@@ -1,4 +1,4 @@
-package com.m21.poe.bank;
+package com.m2i.bank;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,16 +12,22 @@ public class Account {
     private Date creationDate = new Date();
     private ArrayList<Transaction> transactionList = new ArrayList<>();
     private Customer customer;
+    private static int nbaccount = 0;
 
 //    Méthodes
 
     public Account(int id, Customer customer){
         this.id = id;
         this.customer = customer;
+        nbaccount = getNbaccount() + 1;
     }
 
     public Account(){
+        nbaccount = getNbaccount() + 1;
+    }
 
+    public static int getNbaccount() {
+        return nbaccount;
     }
 
     public void deposit(double amount) {

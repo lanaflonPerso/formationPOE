@@ -1,4 +1,4 @@
-package com.m21.poe.bank;
+package com.m2i.bank;
 
 public class Bank {
 
@@ -13,18 +13,11 @@ public class Bank {
 
 //          Compte bancaire
         Account a1 = new Account(0, jean);
+        System.out.println(Account.getNbaccount());
         Account a2 = new Account();
+        System.out.println(Account.getNbaccount());
         Account a3 = new Account(0, new Customer(1, "toto", "leon"));
-
-
-        System.out.println(a1);
-        a1.deposit(100);
-        System.out.println(a1);
-        a1.deposit(100);
-        System.out.println(a1);
-        a1.withdraw(150);
-        System.out.println(a1);
-        System.out.println(a1.getTransactionList());
+        System.out.println(Account.getNbaccount());
 
 
 
