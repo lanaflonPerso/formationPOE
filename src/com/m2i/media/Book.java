@@ -8,6 +8,11 @@ public class Book extends Media {
         this.pageNbr = pageNbr;
     }
 
+    @Override
+    public double getDiscountPrice() {
+        return (getNetPrice()*(1 - ((double)getDiscount()/100)));
+    }
+
     public Book(String title, double price, int discount) {
         super(title, price);
         this.pageNbr = pageNbr;

@@ -14,19 +14,12 @@ public class Program {
 
         Media dvd1 = new DVD("The fly", 10, 100);
 
-        Media boor = new Book("arp", 10);
+        Media book = new Book("arp", 10);
 
-        System.out.println(boor.getNetPrice());
-//        System.out.println(m.getNetPrice());
-        dvd1.setDiscount(20);
-        System.out.println(dvd1.getCompteur());
-        System.out.println(dvd1.getId());
-        System.out.println(boor.getId());
+        Cart cart = new Cart();
 
+        cart.addMedia(new MediaQuantity(dvd1, 2) {
+        });
 
-        System.out.println(dvd1.getDiscount());
-        System.out.println(dvd1.getNetPrice());
-        System.out.println();
-        System.out.println(dvd1.getDiscountPrice());
     }
 }

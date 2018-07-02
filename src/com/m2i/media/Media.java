@@ -2,7 +2,7 @@ package com.m2i.media;
 
 import java.util.ArrayList;
 
-public class Media {
+public abstract class Media {
     private static int compteur = 0;
     private int id ;
     private int discount = 0;
@@ -40,13 +40,9 @@ public class Media {
         return authors;
     }
 
-    public double getDiscountPrice(){
-        return (getNetPrice()*(1 - ((double)getDiscount()/100)));
-    }
+    public abstract double getDiscountPrice();
 
-    public double getNetPrice() {
-        return price * 1.2;
-    }
+    public abstract double getNetPrice();
 
     public int getDiscount() {
         return discount;

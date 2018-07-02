@@ -14,6 +14,16 @@ public class DVD extends Media {
         this.zone = zone;
     }
 
+    @Override
+    public double getDiscountPrice() {
+        return (getNetPrice()*(1 - ((double)getDiscount()/100)));
+    }
+
+    @Override
+    public double getNetPrice() {
+        return getPrice()*1.2;
+    }
+
     public int getZone() {
         return zone;
     }

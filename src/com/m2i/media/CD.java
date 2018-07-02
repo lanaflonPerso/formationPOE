@@ -18,6 +18,17 @@ public class CD extends Media {
     }
 
     @Override
+    public double getDiscountPrice() {
+        return (getNetPrice()*(1 - ((double)getDiscount()/100)));
+
+    }
+
+    @Override
+    public double getNetPrice() {
+        return getPrice() * 1.2;
+    }
+
+    @Override
     public String toString() {
         return super.toString() + " Track nbr : " + getTrackNbr();
     }
