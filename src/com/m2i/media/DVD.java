@@ -30,6 +30,6 @@ public class DVD extends Media {
 
     @Override
     public String toString() {
-        return super.toString() + " Zone : " + getZone();
+        return super.toString();
     }
 }

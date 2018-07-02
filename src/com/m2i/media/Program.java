@@ -12,14 +12,20 @@ public class Program {
 //        Book book1 = new Book("Asterix", 10, goscini, dargaux );
 //        Book book2 = new Book("Tintin", 7.5, herge, dargaux);
 
-        Media dvd1 = new DVD("The fly", 10, 100);
+        Media dvd1 = new DVD("The fly", 10, 0);
 
-        Media book = new Book("arp", 10);
+        Media book = new Book("arp", 20);
 
         Cart cart = new Cart();
 
-        cart.addMedia(new MediaQuantity(dvd1, 2) {
-        });
+
+        cart.addMedia(dvd1);
+        cart.addMedia(dvd1);
+        cart.addMedia(dvd1);
+        cart.addMedia(book);
+        System.out.println(cart.getcartRowList());
+
+        System.out.println(cart.getTotalDiscountPrice());
 
     }
 }

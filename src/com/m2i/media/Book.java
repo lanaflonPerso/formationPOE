@@ -45,6 +45,6 @@ public class Book extends Media {
 
     @Override
     public String toString() {
-        return super.toString() + "page number : " + getPageNbr();
+        return super.toString();
     }
 }
