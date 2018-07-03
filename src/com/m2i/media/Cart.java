@@ -9,14 +9,7 @@ public class Cart {
     }
 
     private CartRow isMediaInCart(IMedia m) {
-        CartRow res = null;
-        for (CartRow row : cartRowList
-                ) {
-            if (m == row.getMedia()) {
-                res = row;
-            }
-        }
-        return res;
+        return cartRowList.stream().filter(x -> x.getMedia() == m).findFirst().orElse(null);
     }
 
     public void addMedia(IMedia m) {
@@ -28,23 +21,28 @@ public class Cart {
         }
     }
 
-    public void removeMedia(CartRow cartRow) {
-        for (CartRow currItem :
-                getcartRowList()) {
-            if (currItem.quantity > 1) {
-                currItem.decrement();
-            } else {
-                getcartRowList().remove(cartRow);
+    public void removeMedia(IMedia m) throws MediaException{
+        CartRow cartRow = isMediaInCart(m);
+        if (cartRow == null)  {
+            throw new MediaException("CartRow non existant");        }
+        else {
+            if(cartRow.getQuantity() > 1){
+                cartRow.decrement();
+            }
+            else {
+                cartRowList.remove(cartRow);
             }
         }
     }
 
-    public double getTotalDiscountPrice() {
-        double totalDiscountPrice = 0;
-        for (CartRow row : getcartRowList()) {
-            totalDiscountPrice += row.getPrice();
+    public void validate() throws MediaException{
+        if(getTotalDiscountPrice() <= 0){
+            throw new MediaException("price <= 0");
         }
-        return totalDiscountPrice;
+    }
+
+    public double getTotalDiscountPrice() {
+        return cartRowList.stream().mapToDouble(x -> x.getMedia().getDiscountPrice()).sum();
     }
 
     public Set<CartRow> getcartRowList() {
