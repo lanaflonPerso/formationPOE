@@ -1,25 +1,13 @@
 package com.m2i.genome;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class DNA {
-    private ArrayList<Nucleobase> strand = new ArrayList<>();
+public class DNA extends Nucleotide {
+    private List<Nucleobase> strand = new ArrayList<>();
 
+    public DNA(){}
     public DNA(String name) {
-        boolean validname = true;
-//        for (int i = 0; i < name.length() ; i++ ){
-//            char tempChar = name.charAt(i);
-//            if (tempChar != 'A' || tempChar != 'T' || tempChar != 'C' || tempChar != 'G'){
-//                validname = false;
-//                break;
-//            }
-//        }
-//        if (validname == false) {
-//           System.out.println("nom Invalide");
-//        }
-//        else {strandFill(name.toUpperCase());}
-
-
         strandFill(name.toUpperCase());
     }
 
@@ -29,13 +17,14 @@ public class DNA {
         }
     }
 
-    public ArrayList<Nucleobase> getStrand() {
+    @Override
+    public List<Nucleobase>  getStrand() {
         return strand;
     }
 
     public String getComplementaryStrand() {
         ArrayList<Nucleobase> tempArray = new ArrayList<>();
-        String string = new String();
+        String string = "";
         for (Nucleobase nucleobase : strand) {
             tempArray.add(new Nucleobase(nucleobase.getSymbol()));
         }
@@ -58,7 +47,7 @@ public class DNA {
     }
 
     public String toString() {
-        return "DNA sequence " + '\n' + getStrand() + '\n';
+        return getStrand().toString();
     }
 
 }
