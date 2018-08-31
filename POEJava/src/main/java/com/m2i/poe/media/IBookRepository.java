@@ -1,5 +1,6 @@
 package com.m2i.poe.media;
 
+import javax.ws.rs.core.Response;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,14 +10,14 @@ public interface IBookRepository {
 
     void load(String uri) throws IOException, ClassNotFoundException, SQLException;
 
-    List<Book> getAll() throws SQLException;
-    Book getById(int id) throws SQLException;
-    List<Book> getByTitle(String title) throws SQLException;
-    List<Book> getByPrice(double price) throws SQLException;
-    List<Book> getByPublisher(String publisherName) throws SQLException; // Bonus
+    List<Book> getAll() ;
+    Book getById(int id) ;
+    List<Book> getByTitle(String title) ;
+    List<Book> getByPrice(double price) ;
+    List<Book> getByPublisher(String publisherName) ; // Bonus
     // Bonus
-    void add(Book b) throws SQLException;
-    void remove(Book b) throws SQLException;
-    void update(Book b) throws SQLException;
+    void createBook(String title, double price);
+    Response remove(int id) ;
+    void update(Book b) ;
 
 }
