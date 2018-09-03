@@ -36,7 +36,6 @@ public class BookJPARepository {
     }
 
 
-
     public static List<Book> getByPublisher(String publisherName) {
         return em.createQuery
                 ("select b from Book b where b.publisher ==" + Integer.parseInt(publisherName))

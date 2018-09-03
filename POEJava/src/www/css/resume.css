@@ -1,3 +1,12 @@
+body{
+    margin: 5px;
+}
+
+#affichage{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
 
 form{
     display : inline;
@@ -9,17 +18,13 @@ a{
   transition: 1s
 }
 
-
-
-
 table{
-  margin: 10px;
+    margin: 10px auto;
     display: inline-block;
-    width : 150px;
-  border-radius: 5px;
+    max-width: 95%!important;
+    border-radius: 5px;
+
 }
-
-
 
 table:hover tbody{
   box-shadow: none;
@@ -34,10 +39,24 @@ tbody{
     border-radius: 5px;
   transition: 1s;
   box-shadow: 0px 0px 40px rgba(50,50,50,0.8)
+
 }
 th{
     width : 150px;
+}
 
+td, th{
+border : none!important
+}
+
+.btn{
+    padding-top : 5px;
+    margin-bottom: 5px;
+}
+
+.form-control{
+    width : 33%;
+    display: inline;
 }
 
 tr{
