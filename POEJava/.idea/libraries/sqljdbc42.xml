@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="sqlserverjdbc">
+  <library name="sqljdbc42">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/www/WEB-INF/lib/sqlserverjdbc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/www/WEB-INF/lib/sqljdbc42.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
